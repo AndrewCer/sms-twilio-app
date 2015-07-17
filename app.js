@@ -27,11 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.get('/test', function (req, res) {
+app.get('/texty-text', function (req, res) {
   client.messages.create({
     to: '+' + process.env.PHONE_NUMBER,
     from: '+' + process.env.TWILIO_NUMBER,
-    body: "Testing!",
+    body: "bla bla bla!",
   }, function(err, message) {
     if (err) {
       console.log(err);
