@@ -31,7 +31,7 @@ app.get('/texty-text', function (req, res) {
   client.messages.create({
     to: '+' + process.env.PHONE_NUMBER,
     from: '+' + process.env.TWILIO_NUMBER,
-    body: "bla bla bla!",
+    body: "Checking to see if this works!",
   }, function(err, message) {
     if (err) {
       console.log(err);

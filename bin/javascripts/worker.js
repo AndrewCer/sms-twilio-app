@@ -1,4 +1,6 @@
 function sayHello() {
-  console.log('!!!!!!!!!!!!hello!!!!!!');
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/texty-text', false);
+  xhr.send(null);
 }
 sayHello();
