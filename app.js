@@ -28,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.get('/texty-text', function (req, res) {
+  //add this to heroku scheduler!!!!!
+  //$ node bin/javascripts/worker
   client.messages.create({
     to: '+' + process.env.PHONE_NUMBER,
     from: '+' + process.env.TWILIO_NUMBER,
