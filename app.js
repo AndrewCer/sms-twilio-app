@@ -5,7 +5,7 @@ var logger = require('morgan');
 require('dotenv').load();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var background = require('./lib/background');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -27,20 +27,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.get('/texty-text', function (req, res) {
-  client.messages.create({
-    to: '+' + process.env.PHONE_NUMBER,
-    from: '+' + process.env.TWILIO_NUMBER,
-    body: "Checking to see if this works!",
-  }, function(err, message) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-    console.log(message);
-    }
+if (background()) {
+  app.get('/texty-text', function (req, res) {
+    // add this to heroku scheduler!!!!!
+    // $ node bin/javascripts/worker
+    client.messages.create({
+      to: '+' + process.env.PHONE_NUMBER,
+      from: '+' + process.env.TWILIO_NUMBER,
+      body: "Hey, is this thing on?",
+    }, function(err, message) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+      console.log(message);
+      }
+    });
   });
-});
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
