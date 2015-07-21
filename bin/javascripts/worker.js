@@ -5,5 +5,5 @@ function textingWorker() {
   // appFunc.workerApp();
   background();
 }
-// textingWorker();
+textingWorker();
 module.exports = textingWorker;
