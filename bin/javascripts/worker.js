@@ -1,7 +1,7 @@
 // var background = require('./lib/background');
-var routing = require('../../routeTest');
+var app = require('../../app');
 
 function textingWorker() {
-  routing();
+  app.routeTest()
 }
 textingWorker();

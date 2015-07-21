@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-var routeTest = function () {
+exports.routeTest = function routeTest () {
   app.get('/texty-text', function (req, res) {
     // add this to heroku scheduler!!!!!
     // $ node bin/javascripts/worker
@@ -78,5 +78,5 @@ app.use(function(err, req, res, next) {
   });
 });
 
-module.exports = routeTest;
+
 module.exports = app;
