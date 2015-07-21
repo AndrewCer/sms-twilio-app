@@ -6,6 +6,8 @@ require('dotenv').load();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var background = require('./lib/background');
+var worker = require('./bin/javascripts/worker');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -28,8 +30,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-exports.routeTest = function routeTest () {
-  app.get('/texty-text', function (req, res) {
+app.get('/testing', function (req, res) {
+  worker();
+});
+
+
+exports.workerApp = function () {
+  app.get('/texty-text', exports.workerApp = function (req, res) {
     // add this to heroku scheduler!!!!!
     // $ node bin/javascripts/worker
     client.messages.create({
@@ -46,6 +53,7 @@ exports.routeTest = function routeTest () {
     });
   });
 }
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -77,6 +85,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

@@ -1,7 +1,6 @@
-// var background = require('./lib/background');
-var app = require('../../app');
+var background = require('../../lib/background');
 
 function textingWorker() {
-  app.routeTest()
+  background();
 }
-textingWorker();
+module.exports = textingWorker;
