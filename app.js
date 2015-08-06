@@ -36,24 +36,24 @@ app.get('/testing', function (req, res) {
 
 
 // exports.workerApp = function () {
-  // app.get('/texty-text',
-  // exports.workerApp = function (req, res) {
-  //   // add this to heroku scheduler!!!!!
-  //   // $ node bin/javascripts/worker
-  //   client.messages.create({
-  //     to: '+' + process.env.PHONE_NUMBER,
-  //     from: '+' + process.env.TWILIO_NUMBER,
-  //     body: "Hey, is this thing on?",
-  //   }, function(err, message) {
-  //     if (err) {
-  //       console.log(err);
-  //     }
-  //     else {
-  //     console.log(message);
-  //     }
-  //   });
-  //   }
-  // });
+//   app.get('/texty-text',
+//   exports.workerApp = function (req, res) {
+//     // add this to heroku scheduler!!!!!
+//     // $ node bin/javascripts/worker
+//     client.messages.create({
+//       to: '+' + process.env.PHONE_NUMBER,
+//       from: '+' + process.env.TWILIO_NUMBER,
+//       body: "Hey, is this thing on?",
+//     }, function(err, message) {
+//       if (err) {
+//         console.log(err);
+//       }
+//       else {
+//       console.log(message);
+//       }
+//     });
+//     }
+//   });
 // }
 
 
